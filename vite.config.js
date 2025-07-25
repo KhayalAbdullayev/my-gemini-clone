@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: "/my-gemini-clone",
+  base: "/", // or just delete this line
   build: {
     rollupOptions: {
       output: {
