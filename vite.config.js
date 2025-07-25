@@ -6,10 +6,13 @@ export default defineConfig({
   base: "/my-gemini-clone",
   build: {
     rollupOptions: {
-      external: ['marked'], // Add this line
       output: {
-        manualChunks: {
-          marked: ['marked'] // Optional optimization
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor'
+            }
+          }
         }
       }
     }
